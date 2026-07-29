@@ -5,5 +5,6 @@ scikit-learn
 lightgbm
 plotly
 matplotlib
+category_encoders
 seaborn
 joblib
