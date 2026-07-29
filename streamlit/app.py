@@ -344,9 +344,17 @@ div[data-testid="stExpander"] details[open] summary:hover {
 # =========================================================
 # 2. LOAD MODEL & ARTIFACTS
 # =========================================================
+import os
+
+# Mendapatkan direktori tempat file app.py ini berada (folder streamlit/)
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+# Bergerak satu langkah keluar (..) lalu masuk ke folder models/
+MODEL_PATH = os.path.join(BASE_DIR, "..", "models", "hotel_cancellation_model.joblib")
+
 @st.cache_resource
 def load_artifacts():
-    return joblib.load("models/hotel_cancellation_model.joblib")
+    return joblib.load(MODEL_PATH)
 
 try:
     artifacts = load_artifacts()
@@ -360,10 +368,10 @@ try:
     meal_map = artifacts['meal_map']
     room_map = artifacts['room_map']
     feature_names = artifacts['feature_names']
-except:
-    st.error("Model artifacts tidak ditemukan. Pastikan path 'models/hotel_cancellation_model.joblib' sudah benar.")
+except Exception as e:
+    st.error(f"Model artifacts tidak ditemukan di path: {MODEL_PATH}")
+    st.caption(f"Detail error: {e}")
     st.stop()
-
 # =========================================================
 # 3. HELPER FUNCTION: PREPROCESSING UNIVERSAL (SINGLE & BATCH)
 # =========================================================
