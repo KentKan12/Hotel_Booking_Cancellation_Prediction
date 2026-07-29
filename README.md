@@ -3,7 +3,7 @@
 An end-to-end Data Science project focusing on predicting hotel booking cancellations.  
 This project covers **Exploratory Data Analysis (EDA)**, model training, hyperparameter tuning with **LightGBM**, custom threshold optimization, and deployment into an interactive **Streamlit** web application.
 
-🔗 **Demo:** [hotelbookingcancellationprediction.streamlit.app](https://hotelbookingcancellationprediction.streamlit.app/)
+🔗 **Demo Web:** [hotelbookingcancellationprediction.streamlit.app](https://hotelbookingcancellationprediction.streamlit.app/)
 
 ![Python](https://img.shields.io/badge/Python-3.10%2B-blue)
 ![LightGBM](https://img.shields.io/badge/LightGBM-Tuned-green)
